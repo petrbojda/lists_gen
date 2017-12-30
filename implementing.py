@@ -7,28 +7,27 @@ import numpy as np
 def main(config_data):
 
     # Load Data from .csv file
-    if config_data["datafile"]:
-        data_path = config_data["datafile"]
-        csv_header_01 = config_data["csv_header"].split(',')
-        print(type(csv_header_01))
-        print("CSV header from cnf file:",csv_header_01)
+    if config_data["radar_datafile"]:
+        radar_data_path = config_data["radar_datafile"]
+        radar_csv_header = config_data["radar_csv_header"].split(',')
+        radar_point_parameters = config_data["radar_detection_parameters"].split(',')
+        print(90*'=')
+        print("Radar CSV header from cnf file:", radar_csv_header)
+        print("Parameters of the RADAR point class:", radar_point_parameters)
+        radar_detections = dc.DataList()
+        radar_detections.append_data_from_csv(filename=radar_data_path, csv_header=radar_csv_header)
 
-        lst_det = dc.DataList()
-        lst_det.append_data_from_csv(filename=data_path,csv_header=csv_header_01)
+    if config_data["dgps_datafile"]:
+        dgps_data_path = config_data["dgps_datafile"]
+        dgps_csv_header = config_data["dgps_csv_header"].split(',')
+        dgps_point_parameters = config_data["DGPS_reference_parameters"].split(',')
+        print(90 * '=')
+        print("DGPS CSV header from cnf file:", dgps_csv_header)
+        print("Parameters of the DGPS point class:", dgps_point_parameters)
+        dgps_references = dc.DataList()
+        dgps_references.append_data_from_csv(filename=dgps_data_path, csv_header=dgps_csv_header)
 
-        # print("filtering: MCCs start at: ", lst_det.get_min_mcc(),
-        #       "and end at: ", lst_det.get_max_mcc())
-        # print("filtering: The lst_det keys:",lst_det[0].keys())
-        #
-        # print("filtering: No filtering applied yet.")
-        # print("filtering: MCCs start at: ", lst_det.get_min_mcc(),
-        #           "and end at: ", lst_det.get_max_mcc())
-        # print("mcc",lst_det.get_array_mcc())
-        # print("x",lst_det.get_array_x())
-        # print("y",lst_det.get_array_y())
-        # print("rho",lst_det.get_array_rho())
-        # print("theta",lst_det.get_array_theta_deg())
-        # print("rvel",lst_det.get_array_rvel())
+
     else:
         print("filtering: lst_det is empty.")
 

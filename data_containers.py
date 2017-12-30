@@ -117,12 +117,12 @@ class DataList(list):
                 self[-1].assign_XYvel(x=float(row['x']), y=float(row['y']), rvel=float(row['vel']))
                 self[-1].complete_rhotheta_from_cartesian()
 
-                if len(self)==1:
-                    self.assign_minmax(self[-1])
-                    self.assign_minmax_iter(self[-1])
-                else:
-                    self.calculate_minmax(self[-1])
-                    self.calculate_minmax_iter(self[-1])
+                # if len(self)==1:
+                #     self.assign_minmax(self[-1])
+                #     self.assign_minmax_iter(self[-1])
+                # else:
+                #     self.calculate_minmax(self[-1])
+                #     self.calculate_minmax_iter(self[-1])
 # #
 #     def assign_minmax(self,detection):
 #         self._mcc_minmax[0] = detection._mcc
@@ -238,14 +238,16 @@ def cnf_file_read(cnf_file):
         config.read(cnf_file)  # "./setup.cnf"
 
         # Get a path to a folder with data
-        conf_data = {"datafile": config.get('Datasets', 'data_01')}
+        conf_data = {"radar_datafile": config.get('Datasets', 'radar_01')}
+        conf_data.update({"dgps_datafile": config.get('Datasets', 'dgps_01')})
 
         # Get a format of a csv file
-        conf_data.update({"csv_header": config.get('CSV_Headers', 'detections_XY')})
+        conf_data.update({"radar_csv_header": config.get('CSV_Headers', 'detections_XY')})
+        conf_data.update({"dgps_csv_header": config.get('CSV_Headers', 'references_XY')})
 
         # Get list of parameters in a radar detection point
-        conf_data.update({"radar_detection_parameters": config.get('RADAR_detections', 'arguments')})
+        conf_data.update({"radar_detection_parameters": config.get('RADAR_detections', 'parameters')})
 
         # Get list of parameters in a radar detection point
-        conf_data.update({"DGPS_reference_parameters": config.get('DGPS_references', 'arguments')})
+        conf_data.update({"DGPS_reference_parameters": config.get('DGPS_references', 'parameters')})
         return conf_data

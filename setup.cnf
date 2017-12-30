@@ -3,8 +3,8 @@
 # by Petr Bojda, 11-29-2017.
 
 [Datasets]
-data_01: dets01.csv
-data_02: ref01.csv
+radar_01: dets01.csv
+dgps_01: ref01.csv
 
 [CSV_Headers]
 detections_XY: mcc,x,y,vel
@@ -12,8 +12,8 @@ references_XY: mcc,x,y,dx,dy
 
 
 [RADAR_detections]
-arguments: mcc,x,y,rho,theta,rvel
+parameters: mcc,x,y,rho,theta,rvel
 
 [DGPS_references]
-arguments: mcc,x,y,dx,dy
+parameters: mcc,x,y,dx,dy
 
