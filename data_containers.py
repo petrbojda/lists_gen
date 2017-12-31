@@ -90,31 +90,37 @@ class DataList(list):
             # dialect = csv.Dialect(csvfile)
             # print(dialect)
             dialect = csv.Sniffer().sniff(csvfile.read(1024))
-            logging.getLogger(__name__).debug("Read by csv sniffer: %s",dialect)
-            logging.getLogger(__name__).debug("    delimiter: %s", dialect.delimiter)
-            logging.getLogger(__name__).debug("    doublequote: %s", dialect.doublequote)
-            logging.getLogger(__name__).debug("    escapechar: %s", dialect.escapechar)
-            logging.getLogger(__name__).debug("    lineterminator: %s", dialect.lineterminator)
-            logging.getLogger(__name__).debug("    quotechar: %s", dialect.quotechar)
-            logging.getLogger(__name__).debug("    quoting: %s", dialect.quoting)
-            logging.getLogger(__name__).debug("    skipinitialspace: %s", dialect.skipinitialspace)
+            logger = logging.getLogger(__name__)
+            logger.debug("Read by csv sniffer: %s",dialect)
+            logger.debug("    delimiter: %s", dialect.delimiter)
+            logger.debug("    doublequote: %s", dialect.doublequote)
+            logger.debug("    escapechar: %s", dialect.escapechar)
+            logger.debug("    lineterminator: %s", dialect.lineterminator)
+            logger.debug("    quotechar: %s", dialect.quotechar)
+            logger.debug("    quoting: %s", dialect.quoting)
+            logger.debug("    skipinitialspace: %s", dialect.skipinitialspace)
 
             csvfile.seek(0)
             head_infile = csv.Sniffer().has_header(csvfile.read(1024))
-            logging.getLogger(__name__).debug("Does the csv file have any header? %s",head_infile)
+            logger.debug("Does the csv file have any header? %s",head_infile)
             csvfile.seek(0)
             if head_infile:
                 reader = csv.DictReader(csvfile)
-                logging.getLogger(__name__).debug("Header in file")
+                logger.debug("Header in file")
             else:
                 reader = csv.DictReader(csvfile,fieldnames=csv_header)
-                logging.getLogger(__name__).debug("Header not in file")
+                logger.debug("Header not in file")
+
 
             for row in reader:
-                logging.getLogger(__name__).debug("read from a file:")
-                for arg in csv_header:
-                    logging.getLogger(__name__).debug("     %s:  %f",arg,float(row[arg]))
 
+                logger.debug("read from a file:")
+                #logger.Handler.setFormatter('fileFormatter_line_continuous')
+                print("Logger's handlers:", logger.handlers)
+                for arg in csv_header:
+                    logger.debug("     %s:  %f",arg,float(row[arg]))
+                #logger.Handler.setFormatter('fileFormatter')
+                # TODO: Figure out how to change formatter on the fly
 
             for row in reader:
                 self.append_datapoint(DataPoint(mcc=int(row['mcc'])))

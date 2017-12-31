@@ -1,13 +1,13 @@
-2017-12-31 10:31:14,434 - __main__ - INFO - Started the test_implementing
-2017-12-31 10:31:14,435 - __main__ - INFO - ==========================================================================================
-2017-12-31 10:31:14,435 - __main__ - INFO - Radar CSV header from cnf file: ['mcc', 'x', 'y', 'vel']
-2017-12-31 10:31:14,435 - __main__ - INFO - Parameters of the RADAR point class: ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
-2017-12-31 10:31:14,435 - __main__ - INFO - List of radar detections created: []
-2017-12-31 10:31:14,439 - data_containers - INFO - List contains 0 points.
-2017-12-31 10:31:14,439 - __main__ - INFO - List of radar detections filled with: []
-2017-12-31 10:31:14,439 - __main__ - INFO - ==========================================================================================
-2017-12-31 10:31:14,439 - __main__ - INFO - DGPS CSV header from cnf file: ['mcc', 'x', 'y', 'dx', 'dy']
-2017-12-31 10:31:14,439 - __main__ - INFO - Parameters of the DGPS point class: ['mcc', 'x', 'y', 'dx', 'dy']
-2017-12-31 10:31:14,439 - __main__ - INFO - List of dgps references created: []
-2017-12-31 10:31:14,442 - data_containers - INFO - List contains 0 points.
-2017-12-31 10:31:14,442 - __main__ - INFO - List of dgps references filled with: []
+2017-12-31 11:10:26,436 - __main__ - INFO - Started the test_implementing
+2017-12-31 11:10:26,437 - __main__ - INFO - ==========================================================================================
+2017-12-31 11:10:26,437 - __main__ - INFO - Radar CSV header from cnf file: ['mcc', 'x', 'y', 'vel']
+2017-12-31 11:10:26,437 - __main__ - INFO - Parameters of the RADAR point class: ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
+2017-12-31 11:10:26,437 - __main__ - INFO - List of radar detections created: []
+2017-12-31 11:10:26,441 - data_containers - INFO - List contains 0 points.
+2017-12-31 11:10:26,441 - __main__ - INFO - List of radar detections filled with: []
+2017-12-31 11:10:26,441 - __main__ - INFO - ==========================================================================================
+2017-12-31 11:10:26,441 - __main__ - INFO - DGPS CSV header from cnf file: ['mcc', 'x', 'y', 'dx', 'dy']
+2017-12-31 11:10:26,441 - __main__ - INFO - Parameters of the DGPS point class: ['mcc', 'x', 'y', 'dx', 'dy']
+2017-12-31 11:10:26,441 - __main__ - INFO - List of dgps references created: []
+2017-12-31 11:10:26,444 - data_containers - INFO - List contains 0 points.
+2017-12-31 11:10:26,444 - __main__ - INFO - List of dgps references filled with: []
