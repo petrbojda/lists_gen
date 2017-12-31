@@ -90,17 +90,15 @@ class DataList(list):
             # dialect = csv.Dialect(csvfile)
             # print(dialect)
             dialect = csv.Sniffer().sniff(csvfile.read(1024))
-            # logging.getLogger(__name__).debug("Read by csv sniffer: %s",dialect)
-            # logging.getLogger(__name__).debug("    delimiter: %s", dialect.delimiter)
-            # logging.getLogger(__name__).debug("    doublequote: %s", dialect.doublequote)
-            # logging.getLogger(__name__).debug("    escapechar: %s", dialect.escapechar)
-            # logging.getLogger(__name__).debug("    lineterminator: %s", dialect.lineterminator)
-            # logger.debug("    quotechar: %s", dialect.quotechar)
-            # logger.debug("    quoting: %s", dialect.quoting)
-            # logger.debug("    skipinitialspace: %s", dialect.skipinitialspace)
-            # TODO: logger does not work properly from thos class, needs to be restarted by getLogger each time
-            # probably definition of the loggers has to be created separately for each module
-            # in a logg.conf file
+            logging.getLogger(__name__).debug("Read by csv sniffer: %s",dialect)
+            logging.getLogger(__name__).debug("    delimiter: %s", dialect.delimiter)
+            logging.getLogger(__name__).debug("    doublequote: %s", dialect.doublequote)
+            logging.getLogger(__name__).debug("    escapechar: %s", dialect.escapechar)
+            logging.getLogger(__name__).debug("    lineterminator: %s", dialect.lineterminator)
+            logging.getLogger(__name__).debug("    quotechar: %s", dialect.quotechar)
+            logging.getLogger(__name__).debug("    quoting: %s", dialect.quoting)
+            logging.getLogger(__name__).debug("    skipinitialspace: %s", dialect.skipinitialspace)
+
             csvfile.seek(0)
             head_infile = csv.Sniffer().has_header(csvfile.read(1024))
             logging.getLogger(__name__).debug("Does the csv file have any header? %s",head_infile)
@@ -120,7 +118,7 @@ class DataList(list):
 
             for row in reader:
                 self.append_datapoint(DataPoint(mcc=int(row['mcc'])))
-                logging.getLogger('test_implementing').debug("Just appended into a list %s",row)
+                logging.getLogger(__name__).debug("Just appended into a list %s",row)
                 self[-1].assign_XYvel(x=float(row['x']), y=float(row['y']), rvel=float(row['vel']))
                 self[-1].complete_rhotheta_from_cartesian()
 
@@ -130,6 +128,8 @@ class DataList(list):
                 # else:
                 #     self.calculate_minmax(self[-1])
                 #     self.calculate_minmax_iter(self[-1])
+
+            logging.getLogger(__name__).info("List contains %d points.", len(self))
 # #
 #     def assign_minmax(self,detection):
 #         self._mcc_minmax[0] = detection._mcc

@@ -21,23 +21,29 @@ def main(config_data):
         radar_data_path = config_data["radar_datafile"]
         radar_csv_header = config_data["radar_csv_header"].split(',')
         radar_point_parameters = config_data["radar_detection_parameters"].split(',')
-        logger.debug(90*'=')
-        logger.debug("Radar CSV header from cnf file: %s", radar_csv_header)
-        logger.debug("Parameters of the RADAR point class: %s", radar_point_parameters)
+        logger.info(90*'=')
+        logger.info("Radar CSV header from cnf file: %s", radar_csv_header)
+        logger.info("Parameters of the RADAR point class: %s", radar_point_parameters)
         radar_detections = dc.DataList()
+        logger.info("List of radar detections created: %s", radar_detections)
         radar_detections.append_data_from_csv(filename=radar_data_path, csv_header=radar_csv_header)
+        logger.info("List of radar detections filled with: %s", radar_detections)
+    else:
+        logging.debug("filtering: List of radar detections is empty.")
 
     if config_data["dgps_datafile"]:
         dgps_data_path = config_data["dgps_datafile"]
         dgps_csv_header = config_data["dgps_csv_header"].split(',')
         dgps_point_parameters = config_data["DGPS_reference_parameters"].split(',')
-        logger.debug(90 * '=')
-        logger.debug("DGPS CSV header from cnf file: %s", dgps_csv_header)
-        logger.debug("Parameters of the DGPS point class: %s", dgps_point_parameters)
+        logger.info(90 * '=')
+        logger.info("DGPS CSV header from cnf file: %s", dgps_csv_header)
+        logger.info("Parameters of the DGPS point class: %s", dgps_point_parameters)
         dgps_references = dc.DataList()
+        logger.info("List of dgps references created: %s", dgps_references)
         dgps_references.append_data_from_csv(filename=dgps_data_path, csv_header=dgps_csv_header)
+        logger.info("List of dgps references filled with: %s", dgps_references)
     else:
-        logging.debug("filtering: lst_det is empty.")
+        logging.debug("filtering: List of dgps references is empty.")
 
 
 if __name__ == "__main__":
