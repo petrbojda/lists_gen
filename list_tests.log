@@ -1,0 +1,7 @@
+2017-12-31 03:13:40,836 - test_implementing - INFO - Started the test_implementing
+2017-12-31 03:13:40,836 - test_implementing - DEBUG - ==========================================================================================
+2017-12-31 03:13:40,836 - test_implementing - DEBUG - Radar CSV header from cnf file: ['mcc', 'x', 'y', 'vel']
+2017-12-31 03:13:40,836 - test_implementing - DEBUG - Parameters of the RADAR point class: ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
+2017-12-31 03:13:40,842 - test_implementing - DEBUG - ==========================================================================================
+2017-12-31 03:13:40,842 - test_implementing - DEBUG - DGPS CSV header from cnf file: ['mcc', 'x', 'y', 'dx', 'dy']
+2017-12-31 03:13:40,842 - test_implementing - DEBUG - Parameters of the DGPS point class: ['mcc', 'x', 'y', 'dx', 'dy']

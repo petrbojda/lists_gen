@@ -17,3 +17,7 @@ parameters: mcc,x,y,rho,theta,rvel
 [DGPS_references]
 parameters: mcc,x,y,dx,dy
 
+[LOG_file]
+cfg_filename: logging.cnf
+
+

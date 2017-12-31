@@ -1,6 +1,9 @@
 import numpy as np
 import configparser
 import csv
+import logging
+
+
 
 class DataPoint(object):
     def __init__(self,mcc=0, **kw):
@@ -46,6 +49,7 @@ class DataPoint(object):
 class DataList(list):
     def __init__(self):
         super().__init__()
+        #logging.debug("class DataList created")
         # self._y_minmax = [0, 0]
         # self._x_minmax = [0, 0]
         # self._theta_minmax = [0, 0]
@@ -86,34 +90,37 @@ class DataList(list):
             # dialect = csv.Dialect(csvfile)
             # print(dialect)
             dialect = csv.Sniffer().sniff(csvfile.read(1024))
-            print("Read by csv sniffer:",dialect)
-            print("    delimiter:", dialect.delimiter)
-            print("    doublequote:", dialect.doublequote)
-            print("    escapechar:", dialect.escapechar)
-            print("    lineterminator:", dialect.lineterminator)
-            print("    quotechar:", dialect.quotechar)
-            print("    quoting:", dialect.quoting)
-            print("    skipinitialspace:", dialect.skipinitialspace)
+            # logging.getLogger(__name__).debug("Read by csv sniffer: %s",dialect)
+            # logging.getLogger(__name__).debug("    delimiter: %s", dialect.delimiter)
+            # logging.getLogger(__name__).debug("    doublequote: %s", dialect.doublequote)
+            # logging.getLogger(__name__).debug("    escapechar: %s", dialect.escapechar)
+            # logging.getLogger(__name__).debug("    lineterminator: %s", dialect.lineterminator)
+            # logger.debug("    quotechar: %s", dialect.quotechar)
+            # logger.debug("    quoting: %s", dialect.quoting)
+            # logger.debug("    skipinitialspace: %s", dialect.skipinitialspace)
+            # TODO: logger does not work properly from thos class, needs to be restarted by getLogger each time
+            # probably definition of the loggers has to be created separately for each module
+            # in a logg.conf file
             csvfile.seek(0)
             head_infile = csv.Sniffer().has_header(csvfile.read(1024))
-            print("Does the csv file have any header?",head_infile)
+            logging.getLogger(__name__).debug("Does the csv file have any header? %s",head_infile)
             csvfile.seek(0)
             if head_infile:
                 reader = csv.DictReader(csvfile)
-                print("Header in file")
+                logging.debug("Header in file")
             else:
                 reader = csv.DictReader(csvfile,fieldnames=csv_header)
-                print("Header not in file")
+                logging.debug("Header not in file")
 
             for row in reader:
-                print("read from a file:")
+                logging.debug("read from a file:")
                 for arg in csv_header:
-                    print("    ",arg,":",float(row[arg]),end="")
-                print(end="\n")
+                    logging.debug("     %s:  %f",arg,float(row[arg]))
+
 
             for row in reader:
                 self.append_datapoint(DataPoint(mcc=int(row['mcc'])))
-                print(row)
+                logging.getLogger('test_implementing').debug("Just appended into a list %s",row)
                 self[-1].assign_XYvel(x=float(row['x']), y=float(row['y']), rvel=float(row['vel']))
                 self[-1].complete_rhotheta_from_cartesian()
 
@@ -248,6 +255,9 @@ def cnf_file_read(cnf_file):
         # Get list of parameters in a radar detection point
         conf_data.update({"radar_detection_parameters": config.get('RADAR_detections', 'parameters')})
 
-        # Get list of parameters in a radar detection point
+        # Get list of parameters in a dgps reference point
         conf_data.update({"DGPS_reference_parameters": config.get('DGPS_references', 'parameters')})
+
+        # configure logging options
+        conf_data.update({"log_config_filename": config.get('LOG_file', 'cfg_filename')})
         return conf_data
