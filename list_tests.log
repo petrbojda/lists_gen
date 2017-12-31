@@ -1,7 +1,282 @@
-2017-12-31 03:13:40,836 - test_implementing - INFO - Started the test_implementing
-2017-12-31 03:13:40,836 - test_implementing - DEBUG - ==========================================================================================
-2017-12-31 03:13:40,836 - test_implementing - DEBUG - Radar CSV header from cnf file: ['mcc', 'x', 'y', 'vel']
-2017-12-31 03:13:40,836 - test_implementing - DEBUG - Parameters of the RADAR point class: ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
-2017-12-31 03:13:40,842 - test_implementing - DEBUG - ==========================================================================================
-2017-12-31 03:13:40,842 - test_implementing - DEBUG - DGPS CSV header from cnf file: ['mcc', 'x', 'y', 'dx', 'dy']
-2017-12-31 03:13:40,842 - test_implementing - DEBUG - Parameters of the DGPS point class: ['mcc', 'x', 'y', 'dx', 'dy']
+2017-12-31 10:19:42,990 - __main__ - INFO - Started the test_implementing
+2017-12-31 10:19:42,990 - __main__ - DEBUG - ==========================================================================================
+2017-12-31 10:19:42,990 - __main__ - DEBUG - Radar CSV header from cnf file: ['mcc', 'x', 'y', 'vel']
+2017-12-31 10:19:42,990 - __main__ - DEBUG - Parameters of the RADAR point class: ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
+2017-12-31 10:19:42,994 - data_containers - DEBUG - Does the csv file have any header? True
+2017-12-31 10:19:42,995 - data_containers - DEBUG - Header in file
+2017-12-31 10:19:42,995 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      mcc:  201.000000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      x:  0.700000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      vel:  2.800000
+2017-12-31 10:19:42,995 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      mcc:  201.000000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      x:  1.200000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      vel:  1.000000
+2017-12-31 10:19:42,995 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      mcc:  202.000000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      x:  1.000000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      y:  1.000000
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      vel:  2.700000
+2017-12-31 10:19:42,995 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,995 - data_containers - DEBUG -      mcc:  203.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      x:  0.500000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      y:  0.500000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      vel:  2.400000
+2017-12-31 10:19:42,996 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      mcc:  204.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      x:  1.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      y:  2.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      vel:  2.300000
+2017-12-31 10:19:42,996 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      mcc:  205.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      x:  1.600000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      y:  1.800000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      vel:  2.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      mcc:  205.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      x:  1.900000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      vel:  15.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      mcc:  206.000000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      x:  3.540000
+2017-12-31 10:19:42,996 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      vel:  3.000000
+2017-12-31 10:19:42,997 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      mcc:  206.000000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      x:  2.500000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      vel:  12.500000
+2017-12-31 10:19:42,997 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      mcc:  206.000000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      x:  3.500000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      y:  1.600000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      vel:  0.200000
+2017-12-31 10:19:42,997 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      mcc:  207.000000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      x:  4.500000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      y:  4.000000
+2017-12-31 10:19:42,997 - data_containers - DEBUG -      vel:  3.050000
+2017-12-31 10:19:42,997 - __main__ - DEBUG - ==========================================================================================
+2017-12-31 10:19:42,997 - __main__ - DEBUG - DGPS CSV header from cnf file: ['mcc', 'x', 'y', 'dx', 'dy']
+2017-12-31 10:19:42,997 - __main__ - DEBUG - Parameters of the DGPS point class: ['mcc', 'x', 'y', 'dx', 'dy']
+2017-12-31 10:19:43,000 - data_containers - DEBUG - Does the csv file have any header? True
+2017-12-31 10:19:43,000 - data_containers - DEBUG - Header in file
+2017-12-31 10:19:43,000 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      mcc:  201.000000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      x:  0.700000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      dx:  0.000000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      dy:  0.000000
+2017-12-31 10:19:43,000 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      mcc:  202.000000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      x:  1.000000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      dx:  0.300000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      dy:  1.100000
+2017-12-31 10:19:43,000 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      mcc:  203.000000
+2017-12-31 10:19:43,000 - data_containers - DEBUG -      x:  1.200000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      y:  1.000000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dx:  0.200000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dy:  -3.100000
+2017-12-31 10:19:43,001 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      mcc:  204.000000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      x:  0.900000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      y:  1.400000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dx:  -0.300000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dy:  0.400000
+2017-12-31 10:19:43,001 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      mcc:  205.000000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      x:  1.000000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dx:  0.100000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dy:  1.600000
+2017-12-31 10:19:43,001 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      mcc:  206.000000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      x:  1.400000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      y:  1.800000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dx:  0.400000
+2017-12-31 10:19:43,001 - data_containers - DEBUG -      dy:  -1.200000
+2017-12-31 10:19:43,001 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      mcc:  207.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      x:  1.400000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      dx:  0.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      dy:  1.200000
+2017-12-31 10:19:43,002 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      mcc:  208.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      x:  2.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      dx:  0.600000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      dy:  0.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      mcc:  209.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      x:  2.300000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      dx:  0.300000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      dy:  1.100000
+2017-12-31 10:19:43,002 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      mcc:  210.000000
+2017-12-31 10:19:43,002 - data_containers - DEBUG -      x:  2.800000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      y:  1.600000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dx:  0.500000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dy:  -2.500000
+2017-12-31 10:19:43,003 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      mcc:  211.000000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      x:  3.600000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      y:  4.000000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dx:  0.800000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dy:  2.400000
+2017-12-31 10:19:43,003 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      mcc:  212.000000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      x:  3.600000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dx:  0.000000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dy:  -1.000000
+2017-12-31 10:19:43,003 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      mcc:  213.000000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      x:  1.500000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dx:  -2.100000
+2017-12-31 10:19:43,003 - data_containers - DEBUG -      dy:  1.100000
+2017-12-31 10:19:43,003 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      mcc:  214.000000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      x:  1.200000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      y:  1.000000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      dx:  -0.300000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      dy:  -3.100000
+2017-12-31 10:19:43,004 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      mcc:  215.000000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      x:  0.700000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      y:  0.500000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      dx:  -0.500000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      dy:  -0.500000
+2017-12-31 10:19:43,004 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      mcc:  216.000000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      x:  0.900000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      y:  2.000000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      dx:  0.200000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      dy:  1.500000
+2017-12-31 10:19:43,004 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      mcc:  217.000000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      x:  1.300000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      y:  1.800000
+2017-12-31 10:19:43,004 - data_containers - DEBUG -      dx:  0.400000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      dy:  -0.200000
+2017-12-31 10:19:43,005 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      mcc:  218.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      x:  2.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      dx:  0.700000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      dy:  1.200000
+2017-12-31 10:19:43,005 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      mcc:  219.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      x:  3.500000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      dx:  1.500000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      dy:  0.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      mcc:  220.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      x:  2.800000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      dx:  -0.700000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      dy:  1.100000
+2017-12-31 10:19:43,005 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      mcc:  221.000000
+2017-12-31 10:19:43,005 - data_containers - DEBUG -      x:  3.200000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      y:  1.600000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dx:  0.400000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dy:  -2.500000
+2017-12-31 10:19:43,006 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      mcc:  222.000000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      x:  4.500000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      y:  4.000000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dx:  1.300000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dy:  2.400000
+2017-12-31 10:19:43,006 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      mcc:  223.000000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      x:  1.000000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dx:  -3.500000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dy:  -1.000000
+2017-12-31 10:19:43,006 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      mcc:  224.000000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      x:  1.200000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dx:  0.200000
+2017-12-31 10:19:43,006 - data_containers - DEBUG -      dy:  1.100000
+2017-12-31 10:19:43,006 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      mcc:  225.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      x:  1.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      y:  1.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      dx:  -0.200000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      dy:  -3.100000
+2017-12-31 10:19:43,007 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      mcc:  226.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      x:  0.500000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      y:  0.500000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      dx:  -0.500000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      dy:  -0.500000
+2017-12-31 10:19:43,007 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      mcc:  227.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      x:  1.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      y:  2.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      dx:  0.500000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      dy:  1.500000
+2017-12-31 10:19:43,007 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      mcc:  228.000000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      x:  1.600000
+2017-12-31 10:19:43,007 - data_containers - DEBUG -      y:  1.800000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dx:  0.600000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dy:  -0.200000
+2017-12-31 10:19:43,008 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      mcc:  229.000000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      x:  1.900000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dx:  0.300000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dy:  1.200000
+2017-12-31 10:19:43,008 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      mcc:  230.000000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      x:  3.540000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      y:  3.000000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dx:  1.640000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dy:  0.000000
+2017-12-31 10:19:43,008 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      mcc:  231.000000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      x:  2.500000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      y:  4.100000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dx:  -1.040000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      dy:  1.100000
+2017-12-31 10:19:43,008 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      mcc:  232.000000
+2017-12-31 10:19:43,008 - data_containers - DEBUG -      x:  3.500000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      y:  1.600000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dx:  1.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dy:  -2.500000
+2017-12-31 10:19:43,009 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      mcc:  233.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      x:  4.500000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      y:  4.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dx:  1.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dy:  2.400000
+2017-12-31 10:19:43,009 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      mcc:  234.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      x:  5.100000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      y:  2.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dx:  0.600000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dy:  -2.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      mcc:  235.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      x:  6.000000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      y:  2.300000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dx:  0.900000
+2017-12-31 10:19:43,009 - data_containers - DEBUG -      dy:  0.300000
+2017-12-31 10:19:43,009 - data_containers - DEBUG - read from a file:
+2017-12-31 10:19:43,010 - data_containers - DEBUG -      mcc:  236.000000
+2017-12-31 10:19:43,010 - data_containers - DEBUG -      x:  6.100000
+2017-12-31 10:19:43,010 - data_containers - DEBUG -      y:  3.400000
+2017-12-31 10:19:43,010 - data_containers - DEBUG -      dx:  0.100000
+2017-12-31 10:19:43,010 - data_containers - DEBUG -      dy:  1.100000

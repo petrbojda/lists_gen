@@ -11,7 +11,7 @@ def main(config_data):
         cfg_logfile_path = config_data["log_config_filename"]
         logging.config.fileConfig(cfg_logfile_path)
         # create logger
-        logger = logging.getLogger('test_implementing')
+        logger = logging.getLogger(__name__)
         # logfile_level = config_data["log_level"]
         # level_of_logging = getattr(logging,logfile_level.upper())
         # logging.basicConfig(filename=logfile_path,level=level_of_logging)

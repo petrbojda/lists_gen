@@ -107,15 +107,15 @@ class DataList(list):
             csvfile.seek(0)
             if head_infile:
                 reader = csv.DictReader(csvfile)
-                logging.debug("Header in file")
+                logging.getLogger(__name__).debug("Header in file")
             else:
                 reader = csv.DictReader(csvfile,fieldnames=csv_header)
-                logging.debug("Header not in file")
+                logging.getLogger(__name__).debug("Header not in file")
 
             for row in reader:
-                logging.debug("read from a file:")
+                logging.getLogger(__name__).debug("read from a file:")
                 for arg in csv_header:
-                    logging.debug("     %s:  %f",arg,float(row[arg]))
+                    logging.getLogger(__name__).debug("     %s:  %f",arg,float(row[arg]))
 
 
             for row in reader:
