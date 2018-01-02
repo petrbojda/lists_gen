@@ -12,12 +12,14 @@ references_XY: mcc,x,y,dx,dy
 
 
 [RADAR_detections]
-parameters: mcc,x,y,rho,theta,rvel
+attributes: mcc,x,y,rho,theta,rvel
+types: int, float, float, float, float, float
+units: 1, meters, meters, meters, degrees, mps
 
 [DGPS_references]
-parameters: mcc,x,y,dx,dy
+attributes: mcc,x,y,dx,dy
+types: int, float, float, float, float
+units: 1, meters, meters, mps, mps
 
 [LOG_file]
 cfg_filename: logging.cnf
-
-

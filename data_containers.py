@@ -2,53 +2,64 @@ import numpy as np
 import configparser
 import csv
 import logging
+import datetime
+
+class DataPoint(type):
+
+    def __new__(cls, clsname, bases, dct):
+        logging.getLogger(__name__).debug("calling DataPoint.__new__: %s", cls)
+        lowercase_attr = {}
+        for name, val in dct.items():
+            if not name.startswith('__'):
+                lowercase_attr[name.lower()] = val
+            else:
+                lowercase_attr[name] = val
+
+        return super(DataPoint, cls).__new__(cls, clsname, bases, lowercase_attr)
+
+    def __init__(self, dct):
+        logging.getLogger(__name__).debug("calling DataPoint.__init__() for: %s", self.__class__)
+        super().__init__()
+        for name, val in dct.items():
+            logging.getLogger(__name__).debug("Attribute: %s has value: %s", name, val)
 
 
-
-class DataPoint(object):
-    def __init__(self,mcc=0, **kw):
-        self._mcc = mcc
-        self._kw = kw
-
-
-    # def assign_XYvel (self,x,y,rvel):
-    #     self._rvel = rvel
-    #     self._x = x
-    #     self._y = y
-    #
-    # def complete_rhotheta_from_cartesian (self):
-    #     self._theta = np.arctan(self._y/self._x)
-    #     self._rho = np.linalg.norm([self._x,self._y])
-    #
-    # def get_mcc(self):
-    #     return self._mcc
-    #
-    # def get_x(self):
-    #     return self._x
-    #
-    # def get_y(self):
-    #     return self._y
-    #
-    # def get_rvel(self):
-    #     return self._rvel
-    #
-    # def get_rho(self):
-    #     return self._rho
-    #
-    # def get_theta(self):
-    #     return self._theta
-    #
-    # def get_theta_deg(self):
-    #     return self._theta *180/np.pi
-    #
-    # def keys(self):
-    #     class_keys = ['_mcc','_rho','_theta','_rvel','_x','_y']
-    #     return class_keys
+# class DataPoint(object):
+#     _mcc = 0
+#     kw = {'x':0.0, 'y':0.0}
+#
+#     def __new__(cls, *args, **kwargs):
+#
+#         logging.getLogger(__name__).debug("calling DataPoint.__new__: %s", cls)
+#         new_instance = object.__new__(cls, *args, **kwargs)
+#         setattr(new_instance, 'created_at', datetime.datetime.now())
+#
+#         return new_instance
+#
+#
+#     def __init__(self,mcc=0, **kw):
+#         super().__init__()
+#         self._mcc = mcc
+#         self._kw = kw
+#         logging.getLogger(__name__).debug("class DataPoint.__init__() called, point created for mcc %s and kw %s", mcc, kw)
+#         logging.getLogger(__name__).debug("calling DataPoint.__class__: %s", self.__class__)
+#
+#     def assign_data(self, attributes):
+#         self._rvel = rvel
+#         self._x = x
+#         self._y = y
 
 
 class DataList(list):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__()
+        if 'data_point_parameters' in kwargs:
+            self.data_point_attributes = kwargs['data_point_attributes']
+        else:
+            self.data_point_attributes = []
+
+        logging.getLogger(__name__).debug("class DataList.__init__, list created for point attributes %s", kwargs['data_point_attributes'])
+
         #logging.debug("class DataList created")
         # self._y_minmax = [0, 0]
         # self._x_minmax = [0, 0]
@@ -114,18 +125,17 @@ class DataList(list):
 
             for row in reader:
 
-                logger.debug("read from a file:")
-                #logger.Handler.setFormatter('fileFormatter_line_continuous')
-                print("Logger's handlers:", logger.handlers)
+                logger.debug("read from a file: %s",csvfile)
+                logger.debug("currently being appended: %s", row)
                 for arg in csv_header:
                     logger.debug("     %s:  %f",arg,float(row[arg]))
-                #logger.Handler.setFormatter('fileFormatter')
-                # TODO: Figure out how to change formatter on the fly
 
-            for row in reader:
-                self.append_datapoint(DataPoint(mcc=int(row['mcc'])))
-                logging.getLogger(__name__).debug("Just appended into a list %s",row)
-                self[-1].assign_XYvel(x=float(row['x']), y=float(row['y']), rvel=float(row['vel']))
+                # TODO: Figure out how to change formatter on the fly
+                # logger.Handler.setFormatter('fileFormatter')
+
+                self.append_datapoint(DataPoint('DetectinPoint',row))
+                logging.getLogger(__name__).debug("just appended into a list %s",row)
+                self[-1].assign_data(row)
                 self[-1].complete_rhotheta_from_cartesian()
 
                 # if len(self)==1:
@@ -259,10 +269,10 @@ def cnf_file_read(cnf_file):
         conf_data.update({"dgps_csv_header": config.get('CSV_Headers', 'references_XY')})
 
         # Get list of parameters in a radar detection point
-        conf_data.update({"radar_detection_parameters": config.get('RADAR_detections', 'parameters')})
+        conf_data.update({"radar_detection_attributes": config.get('RADAR_detections', 'attributes')})
 
         # Get list of parameters in a dgps reference point
-        conf_data.update({"DGPS_reference_parameters": config.get('DGPS_references', 'parameters')})
+        conf_data.update({"DGPS_reference_attributes": config.get('DGPS_references', 'attributes')})
 
         # configure logging options
         conf_data.update({"log_config_filename": config.get('LOG_file', 'cfg_filename')})
