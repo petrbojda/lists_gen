@@ -4,7 +4,7 @@ import csv
 import logging
 import datetime
 
-class DataPoint(type):
+class DataPointFactory(type):
 
     def __new__(cls, clsname, bases, dct):
         logging.getLogger(__name__).debug("calling DataPoint.__new__: %s", cls)
@@ -24,30 +24,30 @@ class DataPoint(type):
             logging.getLogger(__name__).debug("Attribute: %s has value: %s", name, val)
 
 
-# class DataPoint(object):
-#     _mcc = 0
-#     kw = {'x':0.0, 'y':0.0}
-#
-#     def __new__(cls, *args, **kwargs):
-#
-#         logging.getLogger(__name__).debug("calling DataPoint.__new__: %s", cls)
-#         new_instance = object.__new__(cls, *args, **kwargs)
-#         setattr(new_instance, 'created_at', datetime.datetime.now())
-#
-#         return new_instance
-#
-#
-#     def __init__(self,mcc=0, **kw):
-#         super().__init__()
-#         self._mcc = mcc
-#         self._kw = kw
-#         logging.getLogger(__name__).debug("class DataPoint.__init__() called, point created for mcc %s and kw %s", mcc, kw)
-#         logging.getLogger(__name__).debug("calling DataPoint.__class__: %s", self.__class__)
-#
-#     def assign_data(self, attributes):
-#         self._rvel = rvel
-#         self._x = x
-#         self._y = y
+class DataPoint(object):
+    _mcc = 0
+    kw = {'x':0.0, 'y':0.0}
+
+    # def __new__(cls, *args, **kwargs):
+    #
+    #     logging.getLogger(__name__).debug("calling DataPoint.__new__: %s", cls)
+    #     new_instance = object.__new__(cls, *args, **kwargs)
+    #     setattr(new_instance, 'created_at', datetime.datetime.now())
+    #
+    #     return new_instance
+
+
+    def __init__(self,mcc=0, **kw):
+        super().__init__()
+        self._mcc = mcc
+        self._kw = kw
+        logging.getLogger(__name__).debug("class DataPoint.__init__() called, point created for mcc %s and kw %s", mcc, kw)
+        logging.getLogger(__name__).debug("calling DataPoint.__class__: %s", self.__class__)
+
+    def assign_data(self, attributes):
+        self._rvel = rvel
+        self._x = x
+        self._y = y
 
 
 class DataList(list):
@@ -93,6 +93,9 @@ class DataList(list):
     #     else:
     #         raise StopIteration
 
+    def create_datapoint_class(self):
+        pass
+
     def append_datapoint(self, data_point):
         self.append(data_point)
 
@@ -133,7 +136,7 @@ class DataList(list):
                 # TODO: Figure out how to change formatter on the fly
                 # logger.Handler.setFormatter('fileFormatter')
 
-                self.append_datapoint(DataPoint('DetectinPoint',row))
+                self.append_datapoint(DataPoint(row))
                 logging.getLogger(__name__).debug("just appended into a list %s",row)
                 self[-1].assign_data(row)
                 self[-1].complete_rhotheta_from_cartesian()

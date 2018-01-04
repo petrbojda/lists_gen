@@ -1,27 +1,30 @@
-2018-01-01 19:42:03,492 - __main__ - INFO - Started the test_implementing
-2018-01-01 19:42:03,492 - __main__ - INFO - Configuration file: logging.cnf
-2018-01-01 19:42:03,493 - __main__ - INFO -  
-2018-01-01 19:42:03,493 - __main__ - INFO - RADAR Data
-2018-01-01 19:42:03,493 - __main__ - INFO - ==========================================================================================
-2018-01-01 19:42:03,493 - __main__ - INFO - RADAR data file: dets01.csv
-2018-01-01 19:42:03,493 - __main__ - INFO - Radar CSV header from cnf file: ['mcc', 'x', 'y', 'vel']
-2018-01-01 19:42:03,493 - __main__ - INFO - Attributes of the RADAR point class: ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
-2018-01-01 19:42:03,493 - data_containers - DEBUG - class DataList.__init__, list created for point attributes ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
-2018-01-01 19:42:03,493 - __main__ - INFO - List of radar detections created: []
-2018-01-01 19:42:03,496 - data_containers - DEBUG - Read by csv sniffer: <class 'csv.Sniffer.sniff.<locals>.dialect'>
-2018-01-01 19:42:03,496 - data_containers - DEBUG -     delimiter: ,
-2018-01-01 19:42:03,496 - data_containers - DEBUG -     doublequote: False
-2018-01-01 19:42:03,496 - data_containers - DEBUG -     escapechar: None
-2018-01-01 19:42:03,496 - data_containers - DEBUG -     lineterminator: 
+2018-01-03 19:41:21,925 - __main__ - INFO - Started the test_implementing
+2018-01-03 19:41:21,925 - __main__ - INFO - Configuration file: logging.cnf
+2018-01-03 19:41:21,926 - __main__ - INFO -  
+2018-01-03 19:41:21,926 - __main__ - INFO - RADAR Data
+2018-01-03 19:41:21,926 - __main__ - INFO - ==========================================================================================
+2018-01-03 19:41:21,926 - __main__ - INFO - RADAR data file: dets01.csv
+2018-01-03 19:41:21,926 - __main__ - INFO - Radar CSV header from cnf file: ['mcc', 'x', 'y', 'vel']
+2018-01-03 19:41:21,926 - __main__ - INFO - Attributes of the RADAR point class: ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
+2018-01-03 19:41:21,926 - data_containers - DEBUG - class DataList.__init__, list created for point attributes ['mcc', 'x', 'y', 'rho', 'theta', 'rvel']
+2018-01-03 19:41:21,926 - __main__ - INFO - List of radar detections created: []
+2018-01-03 19:41:21,929 - data_containers - DEBUG - Read by csv sniffer: <class 'csv.Sniffer.sniff.<locals>.dialect'>
+2018-01-03 19:41:21,929 - data_containers - DEBUG -     delimiter: ,
+2018-01-03 19:41:21,929 - data_containers - DEBUG -     doublequote: False
+2018-01-03 19:41:21,930 - data_containers - DEBUG -     escapechar: None
+2018-01-03 19:41:21,930 - data_containers - DEBUG -     lineterminator: 
 
-2018-01-01 19:42:03,496 - data_containers - DEBUG -     quotechar: "
-2018-01-01 19:42:03,496 - data_containers - DEBUG -     quoting: 0
-2018-01-01 19:42:03,496 - data_containers - DEBUG -     skipinitialspace: False
-2018-01-01 19:42:03,497 - data_containers - DEBUG - Does the csv file have any header? True
-2018-01-01 19:42:03,498 - data_containers - DEBUG - Header in file
-2018-01-01 19:42:03,498 - data_containers - DEBUG - read from a file: <_io.TextIOWrapper name='dets01.csv' mode='r' encoding='UTF-8'>
-2018-01-01 19:42:03,498 - data_containers - DEBUG - currently being appended: OrderedDict([('mcc', '201'), ('x', '0.7'), ('y', '3'), ('vel', '2.8')])
-2018-01-01 19:42:03,498 - data_containers - DEBUG -      mcc:  201.000000
-2018-01-01 19:42:03,498 - data_containers - DEBUG -      x:  0.700000
-2018-01-01 19:42:03,498 - data_containers - DEBUG -      y:  3.000000
-2018-01-01 19:42:03,498 - data_containers - DEBUG -      vel:  2.800000
+2018-01-03 19:41:21,930 - data_containers - DEBUG -     quotechar: "
+2018-01-03 19:41:21,930 - data_containers - DEBUG -     quoting: 0
+2018-01-03 19:41:21,930 - data_containers - DEBUG -     skipinitialspace: False
+2018-01-03 19:41:21,931 - data_containers - DEBUG - Does the csv file have any header? True
+2018-01-03 19:41:21,931 - data_containers - DEBUG - Header in file
+2018-01-03 19:41:21,931 - data_containers - DEBUG - read from a file: <_io.TextIOWrapper name='dets01.csv' mode='r' encoding='UTF-8'>
+2018-01-03 19:41:21,932 - data_containers - DEBUG - currently being appended: OrderedDict([('mcc', '201'), ('x', '0.7'), ('y', '3'), ('vel', '2.8')])
+2018-01-03 19:41:21,932 - data_containers - DEBUG -      mcc:  201.000000
+2018-01-03 19:41:21,932 - data_containers - DEBUG -      x:  0.700000
+2018-01-03 19:41:21,932 - data_containers - DEBUG -      y:  3.000000
+2018-01-03 19:41:21,932 - data_containers - DEBUG -      vel:  2.800000
+2018-01-03 19:41:21,932 - data_containers - DEBUG - class DataPoint.__init__() called, point created for mcc OrderedDict([('mcc', '201'), ('x', '0.7'), ('y', '3'), ('vel', '2.8')]) and kw {}
+2018-01-03 19:41:21,932 - data_containers - DEBUG - calling DataPoint.__class__: <class 'data_containers.DataPoint'>
+2018-01-03 19:41:21,932 - data_containers - DEBUG - just appended into a list OrderedDict([('mcc', '201'), ('x', '0.7'), ('y', '3'), ('vel', '2.8')])

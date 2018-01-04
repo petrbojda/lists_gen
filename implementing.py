@@ -5,7 +5,6 @@ import logging
 import logging.config
 import numpy as np
 
-
 def main(config_data):
     if config_data["log_config_filename"]:
         cfg_logfile_path = config_data["log_config_filename"]
