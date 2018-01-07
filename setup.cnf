@@ -10,7 +10,6 @@ dgps_01: ref01.csv
 detections_XY: mcc,x,y,vel
 references_XY: mcc,x,y,dx,dy
 
-
 [RADAR_detections]
 attributes: mcc,x,y,rho,theta,rvel
 types: int, float, float, float, float, float

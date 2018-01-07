@@ -24,35 +24,29 @@ class DataPointFactory(type):
             logging.getLogger(__name__).debug("Attribute: %s has value: %s", name, val)
 
 
-class DataPoint(object):
-    _mcc = 0
-    kw = {'x':0.0, 'y':0.0}
-
-    # def __new__(cls, *args, **kwargs):
-    #
-    #     logging.getLogger(__name__).debug("calling DataPoint.__new__: %s", cls)
-    #     new_instance = object.__new__(cls, *args, **kwargs)
-    #     setattr(new_instance, 'created_at', datetime.datetime.now())
-    #
-    #     return new_instance
-
-
-    def __init__(self,mcc=0, **kw):
-        super().__init__()
-        self._mcc = mcc
-        self._kw = kw
-        logging.getLogger(__name__).debug("class DataPoint.__init__() called, point created for mcc %s and kw %s", mcc, kw)
-        logging.getLogger(__name__).debug("calling DataPoint.__class__: %s", self.__class__)
-
-    def assign_data(self, attributes):
-        self._rvel = rvel
-        self._x = x
-        self._y = y
+# class DataPoint(object):
+#     _mcc = 0
+#
+#     def __init__(self,mcc=0):
+#         #super().__init__()
+#         self._mcc = mcc
+#
+#         self._rvel = 0
+#         self._x = 0
+#         self._y = 0
+#
+#         logging.getLogger(__name__).debug("class DataPoint.__init__() called, point created for mcc %s.", mcc)
+#         logging.getLogger(__name__).debug("calling DataPoint.__class__: %s", self.__class__)
+#
+#     def assign_data(self, attributes):
+#         self._rvel = attributes['vel']
+#         self._x = attributes['x']
+#         self._y = attributes['y']
 
 
 class DataList(list):
     def __init__(self, **kwargs):
-        super().__init__()
+        #super().__init__()
         if 'data_point_parameters' in kwargs:
             self.data_point_attributes = kwargs['data_point_attributes']
         else:
@@ -99,13 +93,13 @@ class DataList(list):
     def append_datapoint(self, data_point):
         self.append(data_point)
 
-    def append_data_from_csv(self,filename='data',csv_header=['mcc','x','y','rvel']):
-        with open(filename,newline='') as csvfile:
+    def append_data_from_csv(self,filename='data', csv_header=['mcc', 'x', 'y']):
+        with open(filename, newline='') as csvfile:
             # dialect = csv.Dialect(csvfile)
             # print(dialect)
             dialect = csv.Sniffer().sniff(csvfile.read(1024))
             logger = logging.getLogger(__name__)
-            logger.debug("Read by csv sniffer: %s",dialect)
+            logger.debug("Read by csv sniffer: %s", dialect)
             logger.debug("    delimiter: %s", dialect.delimiter)
             logger.debug("    doublequote: %s", dialect.doublequote)
             logger.debug("    escapechar: %s", dialect.escapechar)
@@ -116,30 +110,29 @@ class DataList(list):
 
             csvfile.seek(0)
             head_infile = csv.Sniffer().has_header(csvfile.read(1024))
-            logger.debug("Does the csv file have any header? %s",head_infile)
+            logger.debug("Does the csv file have any header? %s", head_infile)
             csvfile.seek(0)
             if head_infile:
                 reader = csv.DictReader(csvfile)
                 logger.debug("Header in file")
             else:
-                reader = csv.DictReader(csvfile,fieldnames=csv_header)
+                reader = csv.DictReader(csvfile, fieldnames=csv_header)
                 logger.debug("Header not in file")
-
 
             for row in reader:
 
-                logger.debug("read from a file: %s",csvfile)
+                logger.debug("read from a file: %s", csvfile)
                 logger.debug("currently being appended: %s", row)
                 for arg in csv_header:
-                    logger.debug("     %s:  %f",arg,float(row[arg]))
+                    logger.debug("     %s:  %f", arg, float(row[arg]))
 
                 # TODO: Figure out how to change formatter on the fly
                 # logger.Handler.setFormatter('fileFormatter')
 
-                self.append_datapoint(DataPoint(row))
-                logging.getLogger(__name__).debug("just appended into a list %s",row)
+                self.append_datapoint(DataPoint)
+                logging.getLogger(__name__).debug("just appended into a list %s", row)
                 self[-1].assign_data(row)
-                self[-1].complete_rhotheta_from_cartesian()
+                # self[-1].complete_rhotheta_from_cartesian()
 
                 # if len(self)==1:
                 #     self.assign_minmax(self[-1])
@@ -148,7 +141,8 @@ class DataList(list):
                 #     self.calculate_minmax(self[-1])
                 #     self.calculate_minmax_iter(self[-1])
 
-            logging.getLogger(__name__).info("List contains %d points.", len(self))
+            # logging.getLogger(__name__).info("List contains %d points.", len(self))
+
 # #
 #     def assign_minmax(self,detection):
 #         self._mcc_minmax[0] = detection._mcc
@@ -264,19 +258,74 @@ def cnf_file_read(cnf_file):
         config.read(cnf_file)  # "./setup.cnf"
 
         # Get a path to a folder with data
-        conf_data = {"radar_datafile": config.get('Datasets', 'radar_01')}
-        conf_data.update({"dgps_datafile": config.get('Datasets', 'dgps_01')})
+        try:
+            conf_data = {"radar_datafile": config.get('Datasets', 'radar_01')}
+        except configparser.NoOptionError as err:
+            print("The path to radar data file is not defined in a main config file; ", err)
+            conf_data.update({"radar_datafile": 0})
+        except configparser.NoSectionError as err:
+            print("The section which defines path to the radar data file missing in a main config file; ", err)
+            conf_data.update({"radar_datafile": 0})
 
-        # Get a format of a csv file
-        conf_data.update({"radar_csv_header": config.get('CSV_Headers', 'detections_XY')})
-        conf_data.update({"dgps_csv_header": config.get('CSV_Headers', 'references_XY')})
+        try:
+            conf_data.update({"dgps_datafile": config.get('Datasets', 'dgps_01')})
+        except configparser.NoOptionError as err:
+            print("The path to DGPS data file is not defined in a main config file; ", err)
+            conf_data.update({"dgps_datafile": 0})
+        except configparser.NoSectionError as err:
+            print("The section which defines path to the DGPS data file missing in a main config file; ", err)
+            conf_data.update({"dgps_datafile": 0})
 
         # Get list of parameters in a radar detection point
-        conf_data.update({"radar_detection_attributes": config.get('RADAR_detections', 'attributes')})
+        try:
+            conf_data.update({"radar_detection_attributes": config.get('RADAR_detections', 'attributes')})
+        except configparser.NoOptionError as err:
+            print("The attributes of the radar detections are not defined in a main config file; ", err)
+            conf_data.update({"radar_detection_attributes": 0})
+        except configparser.NoSectionError as err:
+            print("The section which defines attributes of the radar detections missing in a main config file; ", err)
+            conf_data.update({"radar_detection_attributes": 0})
 
         # Get list of parameters in a dgps reference point
-        conf_data.update({"DGPS_reference_attributes": config.get('DGPS_references', 'attributes')})
+        try:
+            conf_data.update({"DGPS_reference_attributes": config.get('DGPS_references', 'attributes')})
+        except configparser.NoOptionError as err:
+            print("The attributes of the DGPS references are not defined in a main config file; ", err)
+            conf_data.update({"DGPS_reference_attributes": 0})
+        except configparser.NoSectionError as err:
+            print("The section which defines attributes of the DGPS references missing in a main config file; ", err)
+            conf_data.update({"DGPS_reference_attributes": 0})
 
         # configure logging options
-        conf_data.update({"log_config_filename": config.get('LOG_file', 'cfg_filename')})
+        try:
+            conf_data.update({"log_config_filename": config.get('LOG_file', 'cfg_filename')})
+        except configparser.NoOptionError as err:
+            print("The path to a log config file is not defined in a main config file; ", err)
+            conf_data.update({"log_config_filename": 0})
+        except configparser.NoSectionError as err:
+            print("The section which defines a path to a log config file missing in a main config file; ", err)
+            conf_data.update({"log_config_filename": 0})
+
+            # Get a format of a csv file
+        try:
+            conf_data.update({"radar_csv_header": config.get('CSV_Headers', 'detections_XY')})
+        except configparser.NoOptionError as err:
+            print("The format of the radar CSV file is not defined in a main config file; ", err)
+            conf_data.update({"radar_csv_header": 0})
+        except configparser.NoSectionError as err:
+            print("The section which would describe radar CSV file missing in a main config file; ", err)
+            conf_data.update({"radar_csv_header": 0})
+
+        try:
+            conf_data.update({"dgps_csv_header": config.get('CSV_Headers', 'references_XY')})
+        except configparser.NoOptionError as err:
+            print("The format of the DGPS CSV file is not defined in a main config file; ", err)
+            conf_data.update({"dgps_csv_header": 0})
+        except configparser.NoSectionError as err:
+            print("The section which would describe DGPS CSV file missing in a main config file; ", err)
+            conf_data.update({"dgps_csv_header": 0})
+
+        print (conf_data)
         return conf_data
+
+
